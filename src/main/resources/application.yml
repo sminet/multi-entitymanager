@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    input:
+      url: jdbc:postgresql://localhost:5432/input
+      username: input
+      password: input
+      liquibase:
+        change-log: classpath:/db/changelog/input/changelog.sql
+    output:
+      url: jdbc:postgresql://localhost:5433/output
+      username: output
+      password: output
+      liquibase:
+        change-log: classpath:/db/changelog/output/changelog.sql
+  jpa:
+    open-in-view: false

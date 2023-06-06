@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  postgres-input:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: input
+      POSTGRES_PASSWORD: input
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata-input:/var/lib/postgresql/data
+
+  postgres-output:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: output
+      POSTGRES_PASSWORD: output
+    ports:
+      - 5433:5432
+    volumes:
+      - pgdata-output:/var/lib/postgresql/data
+
+volumes:
+  pgdata-input:
+  pgdata-output:
